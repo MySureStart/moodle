@@ -200,7 +200,7 @@ function jupyternotebook_cm_info_view(cm_info $cm) {
     require_once($CFG->dirroot.'/lib/resourcelib.php');
 
     $mod_jupyter = $DB->get_record('jupyternotebook', array('id'=>$cm->instance));
-    $context = context_module::instance($mod_jupyter->id);
+    $context = context_module::instance($cm->id);
     $content = '';
     if ($mod_jupyter->showdescription && trim($mod_jupyter->intro) != '') {
         $options = array('noclean'=>true, 'para'=>false, 'filter'=>true, 'context'=>$context, 'overflowdiv'=>false);
